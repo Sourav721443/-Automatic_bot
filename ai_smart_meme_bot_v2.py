@@ -130,16 +130,4 @@ def run_bot():
             while True:
                 time.sleep(10)
                 updated_info = get_product_info().get(top_symbol, {})
-                new_price = updated_info.get("price", price)
-                if new_price > highest:
-                    highest = new_price
-                if should_exit(entry_price, new_price, highest):
-                    print(f"[EXIT] {top_symbol} @ {new_price} | Profit locked")
-                    place_order(top_symbol, "sell", lot)
-                    break
-        else:
-            print("No strong trend coins found.")
-        time.sleep(SCAN_INTERVAL)
-
-if __name__ == "__main__":
-    run_bot()
+                new_pric
