@@ -63,7 +63,7 @@ def get_product_info():
     for product in result.get("result", []):
         symbol = product["symbol"]
         product_map[symbol] = {
-            "price": float(product["spot_price"]),
+            "price": float(product.get("spot_price", 0)),
             "contract_value": float(product["contract_value"]),
             "min_order_size": int(float(product.get("min_order_size", 1)))
         }
